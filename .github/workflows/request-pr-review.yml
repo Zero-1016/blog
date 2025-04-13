@@ -1,0 +1,23 @@
+name: request pr review
+
+on:
+  schedule:
+    - cron: "0 1,5,9 * * *"
+
+jobs:
+  check_and_notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          REPO_URL: https://github.com/${{ github.repository }}
+        run: |
+          # 여기서 REPO_URL 환경변수 사용
+          curl -X POST -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
+               -H "Content-type: application/json" \
+               https://slack.com/api/chat.postMessage \
+               -d "{
+                    \"channel\":\"general\",
+                    \"text\":\"🔔 PR 리뷰 알림\\n\\n미확인 PR이 있습니다.\\n확인해주세요: $REPO_URL/pulls\"
+                   }"
