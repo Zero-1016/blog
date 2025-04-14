@@ -11,6 +11,10 @@ on:
       - 'yarn.lock'
       - '**/*.css.ts'
 
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   chromatic:
     name: 'Blog Storybook Deployment'
