@@ -1,16 +1,13 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vitest/config'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import react from '@vitejs/plugin-react'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin'
 
-const dirname =
-  typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
-
 export default defineConfig({
+  plugins: [react(), vanillaExtractPlugin()],
   test: {
     environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}'],
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     coverage: {
@@ -27,16 +24,17 @@ export default defineConfig({
     workspace: [
       {
         extends: true,
-        plugins: [storybookTest({ configDir: path.join(dirname, '.storybook') })],
+        plugins: [
+          storybookTest({
+            configDir: '.storybook'
+          })
+        ],
         test: {
           name: 'storybook',
           browser: {
-            enabled: true,
-            headless: true,
-            name: 'chromium',
+            enabled: false,
             provider: 'playwright'
-          },
-          setupFiles: ['.storybook/vitest.setup.ts']
+          }
         }
       }
     ]
