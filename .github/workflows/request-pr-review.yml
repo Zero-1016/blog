@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "0 1 * * 1-5"
 
+permissions:
+  pull-requests: read
+  contents: read
+
 jobs:
   cron:
     runs-on: [ubuntu-latest]
