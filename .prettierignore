@@ -1,0 +1,12 @@
+.next
+node_modules
+.husky
+.github
+.husky
+.git
+.env
+.env.local
+.yarn
+.yarnrc.yml
+.prettierrc.json
+.editorconfig
