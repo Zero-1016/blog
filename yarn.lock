@@ -1672,33 +1672,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/experimental-addon-test@npm:^8.6.12":
-  version: 8.6.12
-  resolution: "@storybook/experimental-addon-test@npm:8.6.12"
-  dependencies:
-    "@storybook/global": "npm:^5.0.0"
-    "@storybook/icons": "npm:^1.2.12"
-    "@storybook/instrumenter": "npm:8.6.12"
-    "@storybook/test": "npm:8.6.12"
-    polished: "npm:^4.2.2"
-    prompts: "npm:^2.4.0"
-    ts-dedent: "npm:^2.2.0"
-  peerDependencies:
-    "@vitest/browser": ^2.1.1 || ^3.0.0
-    "@vitest/runner": ^2.1.1 || ^3.0.0
-    storybook: ^8.6.12
-    vitest: ^2.1.1 || ^3.0.0
-  peerDependenciesMeta:
-    "@vitest/browser":
-      optional: true
-    "@vitest/runner":
-      optional: true
-    vitest:
-      optional: true
-  checksum: 10c0/8dd908a243dadc057273d4ae1dbf9616ef1292f5d3ea25795eae3cfb6a2bc0720c0dfdbfa54eed8af6f17bb9da3dc783eb5c9125621a9bbbc4cb09cdfd602bad
-  languageName: node
-  linkType: hard
-
 "@storybook/experimental-nextjs-vite@npm:8.6.12":
   version: 8.6.12
   resolution: "@storybook/experimental-nextjs-vite@npm:8.6.12"
@@ -1836,7 +1809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test@npm:8.6.12, @storybook/test@npm:^8.6.12":
+"@storybook/test@npm:8.6.12":
   version: 8.6.12
   resolution: "@storybook/test@npm:8.6.12"
   dependencies:
@@ -2947,10 +2920,8 @@ __metadata:
     "@storybook/addon-essentials": "npm:^8.6.12"
     "@storybook/addon-onboarding": "npm:^8.6.12"
     "@storybook/blocks": "npm:^8.6.12"
-    "@storybook/experimental-addon-test": "npm:^8.6.12"
     "@storybook/experimental-nextjs-vite": "npm:8.6.12"
     "@storybook/react": "npm:^8.6.12"
-    "@storybook/test": "npm:^8.6.12"
     "@testing-library/jest-dom": "npm:^6.6.3"
     "@testing-library/react": "npm:^16.3.0"
     "@types/node": "npm:^20"
@@ -5351,13 +5322,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kleur@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "kleur@npm:3.0.3"
-  checksum: 10c0/cd3a0b8878e7d6d3799e54340efe3591ca787d9f95f109f28129bdd2915e37807bf8918bb295ab86afb8c82196beec5a1adcaf29042ce3f2bd932b038fe3aa4b
-  languageName: node
-  linkType: hard
-
 "language-subtag-registry@npm:^0.3.20":
   version: 0.3.23
   resolution: "language-subtag-registry@npm:0.3.23"
@@ -6329,16 +6293,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prompts@npm:^2.4.0":
-  version: 2.4.2
-  resolution: "prompts@npm:2.4.2"
-  dependencies:
-    kleur: "npm:^3.0.3"
-    sisteransi: "npm:^1.0.5"
-  checksum: 10c0/16f1ac2977b19fe2cf53f8411cc98db7a3c8b115c479b2ca5c82b5527cd937aa405fa04f9a5960abeb9daef53191b53b4d13e35c1f5d50e8718c76917c5f1ea4
-  languageName: node
-  linkType: hard
-
 "prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
@@ -7044,13 +6998,6 @@ __metadata:
     mrmime: "npm:^2.0.0"
     totalist: "npm:^3.0.0"
   checksum: 10c0/7cf64b28daa69b15f77b38b0efdd02c007b72bb3ec5f107b208ebf59f01b174ef63a1db3aca16d2df925501831f4c209be6ece3302b98765919ef5088b45bf80
-  languageName: node
-  linkType: hard
-
-"sisteransi@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "sisteransi@npm:1.0.5"
-  checksum: 10c0/230ac975cca485b7f6fe2b96a711aa62a6a26ead3e6fb8ba17c5a00d61b8bed0d7adc21f5626b70d7c33c62ff4e63933017a6462942c719d1980bb0b1207ad46
   languageName: node
   linkType: hard
 
