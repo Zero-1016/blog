@@ -10,3 +10,4 @@ node_modules
 .yarnrc.yml
 .prettierrc.json
 .editorconfig
+.storybook
