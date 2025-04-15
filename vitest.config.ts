@@ -10,7 +10,7 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
-    include: ['**/*.test.{ts,tsx}'],
+    include: ['**/*.spec.{ts,tsx}'],
     exclude: ['node_modules', '.storybook/**/*', '**/*.stories.{ts,tsx}'],
     coverage: {
       provider: 'v8',
