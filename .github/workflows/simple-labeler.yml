@@ -3,13 +3,11 @@ on:
   pull_request:
     types: [opened, ready_for_review]
 
-permissions:
-  contents: write
-  issues: write
+permissions: write-all
 
 jobs:
   simple-labeler:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
       - name: Label to PR
         uses: naver/simple-labeler@latest
