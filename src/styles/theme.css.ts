@@ -61,3 +61,10 @@ export const vars = createGlobalTheme(':root', {
     loose: '2'
   }
 })
+
+export type Colors = typeof vars.colors
+export type Padding = typeof vars.padding
+export type Space = typeof vars.space
+export type BorderRadius = typeof vars.borderRadius
+export type FontFamily = typeof vars.fontFamily
+export type FontSize = typeof vars.fontSize

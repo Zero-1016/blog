@@ -49,18 +49,9 @@ export const typography = recipe({
         fontWeight: vars.fontWeight.regular,
         lineHeight: vars.lineHeight.normal
       }
-    },
-    color: {
-      [colorVariants.textPrimary]: {
-        color: vars.colors.textPrimary
-      },
-      [colorVariants.textSecondary]: {
-        color: vars.colors.textSecondary
-      }
     }
   },
   defaultVariants: {
-    fontSize: fontSizeVariants.body,
-    color: colorVariants.textPrimary
+    fontSize: fontSizeVariants.body
   }
 })
