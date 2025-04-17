@@ -1,13 +1,8 @@
 import { type ButtonHTMLAttributes } from 'react'
-import { base, variants, sizes } from './Button.css'
+import { buttonRecipe, type ButtonProps } from './style.css'
 import { clsx } from 'clsx'
-import { type ButtonVariant, type ButtonSize } from './type'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant
-  size?: ButtonSize
-  className?: string
-}
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
 
 export const Button = ({
   children,
@@ -15,10 +10,10 @@ export const Button = ({
   size = 'medium',
   className = '',
   ...props
-}: ButtonProps) => {
+}: Props) => {
   return (
     <button
-      className={clsx(base, variants[variant], sizes[size], className)}
+      className={clsx(buttonRecipe({ variant, size }), className)}
       type='button'
       {...props}>
       {children}
