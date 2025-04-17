@@ -62,6 +62,7 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           autoAcceptChanges: true
+          skip: true
 
       - name: PR Auto Comment
         if: steps.chromatic.outputs.storybookUrl != ''
