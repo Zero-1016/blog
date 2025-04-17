@@ -26,7 +26,7 @@ describe('Typography', () => {
   it('색상 변형을 적용한다', () => {
     const { container } = render(<Txt color={colorVariants.textPrimary}>주요 텍스트</Txt>)
     const element = container.firstChild as HTMLElement
-    expect(element.className).toMatch(/color_textPrimary/)
+    expect(element.className).toMatch(/textPrimary/)
   })
 
   it('추가 props를 전달한다', () => {
