@@ -1,15 +1,25 @@
-import { useContext, createContext, type ReactNode } from 'react'
+import { useContext, createContext, type ReactNode, useMemo } from 'react'
 
-interface ProviderProps<T> {
+type ProviderProps<T> = {
   children: ReactNode
-  value: T
-}
+} & T
 
-export function createCtxProvider<T>(componentName: string, defaultValue?: T) {
+export function createCtxProvider<T extends Record<string, unknown>>(
+  componentName: string,
+  defaultValue?: T
+) {
   const Context = createContext<T | undefined>(defaultValue)
 
-  function Provider({ children, value }: ProviderProps<T>) {
-    return <Context.Provider value={value}>{children}</Context.Provider>
+  function Provider(props: ProviderProps<T>) {
+    const { children, ...value } = props
+
+    const memoizedValue = useMemo(
+      () => value as unknown as T,
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      Object.values(value)
+    )
+
+    return <Context.Provider value={memoizedValue}>{children}</Context.Provider>
   }
 
   Provider.displayName = componentName + 'Provider'
@@ -17,7 +27,7 @@ export function createCtxProvider<T>(componentName: string, defaultValue?: T) {
   function useCtx() {
     const value = useContext(Context)
     if (value === undefined) {
-      throw new Error('Context must be used within its provider')
+      throw new Error(`${componentName} Context must be used within its provider`)
     }
     return value
   }
