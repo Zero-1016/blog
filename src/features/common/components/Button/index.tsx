@@ -3,14 +3,20 @@ import { buttonRecipe, type ButtonProps } from './style.css'
 import { clsx } from 'clsx'
 import { ButtonContextProvider } from './context'
 import { ButtonTxt } from './compound/Txt'
-
-type ButtonImplProps = ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
+import { ButtonIcon } from './compound/Icon'
+type ButtonImplProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonProps & {
+    leftAddon?: React.ReactNode
+    rightAddon?: React.ReactNode
+  }
 
 const ButtonImpl = ({
   children,
   variant = 'primary',
   size = 'medium',
   className = '',
+  leftAddon,
+  rightAddon,
   ...props
 }: ButtonImplProps) => {
   return (
@@ -18,15 +24,21 @@ const ButtonImpl = ({
       size={size}
       variant={variant}>
       <button
-        className={clsx(buttonRecipe({ variant, size }), className)}
+        className={clsx(
+          buttonRecipe({ variant, size, hasAddon: !!leftAddon || !!rightAddon }),
+          className
+        )}
         type='button'
         {...props}>
+        {leftAddon && leftAddon}
         {children}
+        {rightAddon && rightAddon}
       </button>
     </ButtonContextProvider>
   )
 }
 
 export const Button = Object.assign(ButtonImpl, {
-  Txt: ButtonTxt
+  Txt: ButtonTxt,
+  Icon: ButtonIcon
 })

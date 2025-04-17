@@ -1,7 +1,9 @@
 import { type LucideProps, icons } from 'lucide-react'
 
+export type IconName = keyof typeof icons
+
 interface IconProps extends Omit<LucideProps, 'icon'> {
-  name: keyof typeof icons
+  name: IconName
   size?: number
   color?: string
 }

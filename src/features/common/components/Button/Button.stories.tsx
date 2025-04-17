@@ -74,3 +74,44 @@ export const SizeWithVariant: Story = {
     </div>
   )
 }
+
+export const WithIcon: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <Button
+        leftAddon={
+          <Button.Icon
+            size={args.size}
+            name='Plus'
+          />
+        }
+        {...args}>
+        <Button.Txt
+          size={args.size}
+          variant={args.variant}>
+          기본 버튼
+        </Button.Txt>
+      </Button>
+      <Button
+        leftAddon={
+          <Button.Icon
+            size={args.size}
+            name='Plus'
+          />
+        }
+        rightAddon={
+          <Button.Icon
+            size={args.size}
+            name='Plus'
+          />
+        }
+        {...args}>
+        <Button.Txt
+          size={args.size}
+          variant={args.variant}>
+          기본 버튼
+        </Button.Txt>
+      </Button>
+    </div>
+  )
+}
