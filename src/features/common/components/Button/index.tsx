@@ -1,22 +1,32 @@
 import { type ButtonHTMLAttributes } from 'react'
 import { buttonRecipe, type ButtonProps } from './style.css'
 import { clsx } from 'clsx'
+import { ButtonContextProvider } from './context'
+import { ButtonTxt } from './compound/Txt'
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
+type ButtonImplProps = ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
 
-export const Button = ({
+const ButtonImpl = ({
   children,
   variant = 'primary',
   size = 'medium',
   className = '',
   ...props
-}: Props) => {
+}: ButtonImplProps) => {
   return (
-    <button
-      className={clsx(buttonRecipe({ variant, size }), className)}
-      type='button'
-      {...props}>
-      {children}
-    </button>
+    <ButtonContextProvider
+      size={size}
+      variant={variant}>
+      <button
+        className={clsx(buttonRecipe({ variant, size }), className)}
+        type='button'
+        {...props}>
+        {children}
+      </button>
+    </ButtonContextProvider>
   )
 }
+
+export const Button = Object.assign(ButtonImpl, {
+  Txt: ButtonTxt
+})
