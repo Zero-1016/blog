@@ -1,27 +1,44 @@
 import { type ButtonHTMLAttributes } from 'react'
-import { base, variants, sizes } from './Button.css'
+import { buttonRecipe, type ButtonProps } from './style.css'
 import { clsx } from 'clsx'
-import { type ButtonVariant, type ButtonSize } from './type'
+import { ButtonContextProvider } from './context'
+import { ButtonTxt } from './compound/Txt'
+import { ButtonIcon } from './compound/Icon'
+type ButtonImplProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonProps & {
+    leftAddon?: React.ReactNode
+    rightAddon?: React.ReactNode
+  }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant
-  size?: ButtonSize
-  className?: string
-}
-
-export const Button = ({
+const ButtonImpl = ({
   children,
   variant = 'primary',
   size = 'medium',
   className = '',
+  leftAddon,
+  rightAddon,
   ...props
-}: ButtonProps) => {
+}: ButtonImplProps) => {
   return (
-    <button
-      className={clsx(base, variants[variant], sizes[size], className)}
-      type='button'
-      {...props}>
-      {children}
-    </button>
+    <ButtonContextProvider
+      size={size}
+      variant={variant}>
+      <button
+        className={clsx(
+          buttonRecipe({ variant, size, hasAddon: !!leftAddon || !!rightAddon }),
+          className
+        )}
+        type='button'
+        {...props}>
+        {leftAddon && leftAddon}
+        {children}
+        {rightAddon && rightAddon}
+      </button>
+    </ButtonContextProvider>
   )
 }
+
+export const Button = Object.assign(ButtonImpl, {
+  Txt: ButtonTxt,
+  Icon: ButtonIcon
+})

@@ -11,22 +11,18 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary'],
-      description: '버튼의 스타일 변형'
+      options: ['primary', 'secondary']
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
-      description: '버튼의 크기'
+      options: ['small', 'medium', 'large']
     },
     onClick: { action: 'clicked' },
     className: {
-      control: 'text',
-      description: '버튼에 적용할 추가 클래스명'
+      control: 'text'
     },
     children: {
-      control: 'text',
-      description: '버튼 내부에 들어갈 텍스트'
+      control: 'text'
     }
   }
 } satisfies Meta<typeof Button>
@@ -34,37 +30,88 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    children: '기본 버튼'
-  }
+export const Default: Story = {
+  render: (args) => <Button {...args}>기본 버튼</Button>
 }
 
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    children: '보조 버튼'
-  }
+export const SizeWithVariant: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <Button
+          size='small'
+          variant='primary'>
+          <Button.Txt>기본 버튼</Button.Txt>
+        </Button>
+        <Button
+          size='medium'
+          variant='primary'>
+          <Button.Txt>기본 버튼</Button.Txt>
+        </Button>
+        <Button
+          size='large'
+          variant='primary'>
+          <Button.Txt>기본 버튼</Button.Txt>
+        </Button>
+      </div>
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <Button
+          size='small'
+          variant='secondary'>
+          <Button.Txt>기본 버튼</Button.Txt>
+        </Button>
+        <Button
+          size='medium'
+          variant='secondary'>
+          <Button.Txt>기본 버튼</Button.Txt>
+        </Button>
+        <Button
+          size='large'
+          variant='secondary'>
+          <Button.Txt>기본 버튼</Button.Txt>
+        </Button>
+      </div>
+    </div>
+  )
 }
 
-export const Large: Story = {
-  args: {
-    size: 'large',
-    children: '큰 버튼'
-  }
-}
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    children: '작은 버튼'
-  }
-}
-
-export const Disabled: Story = {
-  args: {
-    children: '비활성화 버튼',
-    disabled: true
-  }
+export const WithIcon: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <Button
+        leftAddon={
+          <Button.Icon
+            size={args.size}
+            name='Plus'
+          />
+        }
+        {...args}>
+        <Button.Txt
+          size={args.size}
+          variant={args.variant}>
+          기본 버튼
+        </Button.Txt>
+      </Button>
+      <Button
+        leftAddon={
+          <Button.Icon
+            size={args.size}
+            name='Plus'
+          />
+        }
+        rightAddon={
+          <Button.Icon
+            size={args.size}
+            name='Plus'
+          />
+        }
+        {...args}>
+        <Button.Txt
+          size={args.size}
+          variant={args.variant}>
+          기본 버튼
+        </Button.Txt>
+      </Button>
+    </div>
+  )
 }
