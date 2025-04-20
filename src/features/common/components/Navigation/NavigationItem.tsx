@@ -1,0 +1,74 @@
+import { type ComponentProps, useCallback, type MouseEvent } from 'react'
+import { useNavigationContext } from './context'
+import { Slot } from '@radix-ui/react-slot'
+import { type FontSizeVariant, Txt } from '../Typography'
+import Link from 'next/link'
+import { composeHandler } from '@/utils/componseHandler'
+import { type Colors } from '@/styles/theme.css'
+
+type NavigationItemProps = Omit<ComponentProps<'div'>, 'href'> & {
+  current?: boolean
+  asChild?: boolean
+  href?: string
+}
+
+export function NavigationItem({
+  asChild,
+  current: propCurrent,
+  href,
+  children,
+  ...restProps
+}: NavigationItemProps) {
+  const { current: ctxCurrent, setCurrent: ctxSetCurrent, size = 'medium' } = useNavigationContext()
+  const current = propCurrent ?? ctxCurrent
+  const isActive = current === href
+  const textColor = TXT_COLOR_MAP[isActive ? 'current' : 'default']
+  const fontSize = TXT_SIZE_MAP[size]
+
+  const handleClick = useCallback(() => {
+    if (href) {
+      ctxSetCurrent(href)
+    }
+  }, [href, ctxSetCurrent])
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        onClick={composeHandler(
+          handleClick,
+          restProps.onClick as unknown as (e: MouseEvent<HTMLElement>) => void
+        )}>
+        <Txt
+          color={textColor}
+          fontSize={fontSize}>
+          {children}
+        </Txt>
+      </Link>
+    )
+  }
+
+  const Component = asChild ? Slot : 'div'
+  return (
+    <Component
+      {...restProps}
+      onClick={composeHandler(handleClick, restProps.onClick)}>
+      <Txt
+        color={textColor}
+        fontSize={fontSize}>
+        {children}
+      </Txt>
+    </Component>
+  )
+}
+
+const TXT_SIZE_MAP: Record<string, FontSizeVariant> = {
+  small: 'caption',
+  medium: 'bodySm',
+  large: 'body'
+} as const
+
+const TXT_COLOR_MAP: Record<string, keyof Colors> = {
+  current: 'primary',
+  default: 'textSecondary'
+} as const
