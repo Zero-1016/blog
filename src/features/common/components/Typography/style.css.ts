@@ -11,9 +11,10 @@ export const fontSizeVariants = {
 } as const
 
 export const colorVariants = {
+  primary: 'primary',
   textPrimary: 'textPrimary',
   textSecondary: 'textSecondary',
-  textDefault: 'textDefault'
+  inherit: 'inherit'
 } as const
 
 export const typography = recipe({
@@ -48,6 +49,20 @@ export const typography = recipe({
         fontSize: vars.fontSize.xs,
         fontWeight: vars.fontWeight.regular,
         lineHeight: vars.lineHeight.normal
+      }
+    },
+    color: {
+      [colorVariants.primary]: {
+        color: vars.colors.primary
+      },
+      [colorVariants.textPrimary]: {
+        color: vars.colors.textPrimary
+      },
+      [colorVariants.textSecondary]: {
+        color: vars.colors.textSecondary
+      },
+      [colorVariants.inherit]: {
+        color: 'inherit'
       }
     }
   },

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { Txt } from '.'
+import { Txt } from './Typography'
 import { fontSizeVariants, colorVariants } from './style.css'
 import '@/styles/theme.css'
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Txt } from '.'
+import { Txt } from './Typography'
 import { colorVariants, fontSizeVariants } from './style.css'
 
 const meta = {
@@ -30,7 +30,7 @@ const meta = {
       options: Object.values(colorVariants),
       description: '텍스트 색상',
       table: {
-        defaultValue: { summary: colorVariants.textDefault }
+        defaultValue: { summary: colorVariants.inherit }
       }
     },
     className: {
