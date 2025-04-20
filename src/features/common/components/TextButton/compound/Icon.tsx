@@ -1,11 +1,9 @@
-import { type Txt } from '@/features/common/components/Typography'
 import { type ComponentProps } from 'react'
 import { useTextButtonContext } from '../context'
-import { Icon, type IconName } from '../../Icon'
+import { Icon } from '../../Icon'
 
-type TextButtonIconProps = ComponentProps<typeof Txt> & {
+type TextButtonIconProps = Omit<ComponentProps<typeof Icon>, 'size'> & {
   size?: 'small' | 'medium' | 'large'
-  name: IconName
 }
 
 export const TextButtonIcon = ({ size: propSize, name, ...restProps }: TextButtonIconProps) => {
