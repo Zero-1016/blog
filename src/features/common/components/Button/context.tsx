@@ -1,3 +1,5 @@
+'use client'
+
 import { createCtxProvider } from '@/utils/createContextProvider'
 
 type ButtonContextValue = {
