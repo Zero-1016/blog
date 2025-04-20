@@ -1,10 +1,10 @@
 import { type ComponentProps, useCallback, type MouseEvent } from 'react'
 import { useNavigationContext } from './context'
 import { Slot } from '@radix-ui/react-slot'
-import { type FontSizeVariant, Txt } from '../Typography'
+import { Txt, type TxtSize, type TxtColor } from '../Typography'
 import Link from 'next/link'
 import { composeHandler } from '@/utils/componseHandler'
-import { type Colors } from '@/styles/theme.css'
+import { navigationItemStyle } from './style.css'
 
 type NavigationItemProps = Omit<ComponentProps<'div'>, 'href'> & {
   current?: boolean
@@ -40,6 +40,7 @@ export function NavigationItem({
           restProps.onClick as unknown as (e: MouseEvent<HTMLElement>) => void
         )}>
         <Txt
+          className={navigationItemStyle}
           color={textColor}
           fontSize={fontSize}>
           {children}
@@ -54,6 +55,7 @@ export function NavigationItem({
       {...restProps}
       onClick={composeHandler(handleClick, restProps.onClick)}>
       <Txt
+        className={navigationItemStyle}
         color={textColor}
         fontSize={fontSize}>
         {children}
@@ -62,13 +64,13 @@ export function NavigationItem({
   )
 }
 
-const TXT_SIZE_MAP: Record<string, FontSizeVariant> = {
+const TXT_SIZE_MAP: Record<string, TxtSize> = {
   small: 'caption',
   medium: 'bodySm',
   large: 'body'
 } as const
 
-const TXT_COLOR_MAP: Record<string, keyof Colors> = {
+const TXT_COLOR_MAP: Record<string, TxtColor> = {
   current: 'primary',
   default: 'textSecondary'
 } as const

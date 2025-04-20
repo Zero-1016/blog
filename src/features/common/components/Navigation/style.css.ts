@@ -1,3 +1,4 @@
+import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
 export const navigationStyle = recipe({
@@ -30,4 +31,9 @@ export const navigationStyle = recipe({
     direction: 'horizontal',
     size: 'medium'
   }
+})
+
+export const navigationItemStyle = style({
+  cursor: 'pointer',
+  transition: 'color 0.3s ease-in-out'
 })
