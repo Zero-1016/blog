@@ -1,66 +1,33 @@
-import { type ComponentProps, useCallback, type MouseEvent } from 'react'
+import { type ComponentProps } from 'react'
 import { useNavigationContext } from './context'
-import { Slot } from '@radix-ui/react-slot'
 import { Txt, type TxtSize, type TxtColor } from '../Typography'
 import Link from 'next/link'
-import { composeHandler } from '@/utils/componseHandler'
 import { navigationItemStyle } from './style.css'
-
-type NavigationItemProps = Omit<ComponentProps<'div'>, 'href'> & {
-  current?: boolean
-  asChild?: boolean
-  href?: string
+import { usePathname } from 'next/navigation'
+type NavigationItemProps = Omit<ComponentProps<typeof Link>, 'href'> & {
+  href: string
+  isActive?: boolean
 }
+export const NavigationItem = ({ href, children, ...restProps }: NavigationItemProps) => {
+  const { size = 'medium' } = useNavigationContext()
+  const pathname = usePathname()
 
-export function NavigationItem({
-  asChild,
-  current: propCurrent,
-  href,
-  children,
-  ...restProps
-}: NavigationItemProps) {
-  const { current: ctxCurrent, setCurrent: ctxSetCurrent, size = 'medium' } = useNavigationContext()
-  const current = propCurrent ?? ctxCurrent
-  const isActive = current === href
-  const textColor = TXT_COLOR_MAP[isActive ? 'current' : 'default']
   const fontSize = TXT_SIZE_MAP[size]
 
-  const handleClick = useCallback(() => {
-    if (href) {
-      ctxSetCurrent(href)
-    }
-  }, [href, ctxSetCurrent])
+  const isActive = pathname === href
+  const textColor = TXT_COLOR_MAP[isActive ? 'current' : 'default']
 
-  if (href) {
-    return (
-      <Link
-        href={href}
-        onClick={composeHandler(
-          handleClick,
-          restProps.onClick as unknown as (e: MouseEvent<HTMLElement>) => void
-        )}>
-        <Txt
-          className={navigationItemStyle}
-          color={textColor}
-          fontSize={fontSize}>
-          {children}
-        </Txt>
-      </Link>
-    )
-  }
-
-  const Component = asChild ? Slot : 'div'
   return (
-    <Component
-      {...restProps}
-      onClick={composeHandler(handleClick, restProps.onClick)}>
+    <Link
+      href={href}
+      {...restProps}>
       <Txt
         className={navigationItemStyle}
         color={textColor}
         fontSize={fontSize}>
         {children}
       </Txt>
-    </Component>
+    </Link>
   )
 }
 

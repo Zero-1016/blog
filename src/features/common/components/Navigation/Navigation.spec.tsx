@@ -42,9 +42,7 @@ describe('Navigation', () => {
   it('asChild prop이 정상적으로 동작한다', () => {
     const { container } = render(
       <Navigation>
-        <NavigationItem
-          href='/home'
-          asChild>
+        <NavigationItem href='/home'>
           <button>홈</button>
         </NavigationItem>
       </Navigation>

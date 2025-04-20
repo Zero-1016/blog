@@ -1,43 +1,27 @@
-import { type HTMLAttributes, useEffect, useState } from 'react'
+import { type HTMLAttributes } from 'react'
 import { NavigationItem } from './NavigationItem'
 import { NavigationContextProvider } from './context'
 import { navigationStyle } from './style.css'
 import clsx from 'clsx'
+import { type NavigationDirection, type NavigationSize } from './type'
 
 type NavigationImplProps = HTMLAttributes<HTMLDivElement> & {
-  current?: string
-  defaultCurrent?: string
-  direction?: 'horizontal' | 'vertical'
+  direction?: NavigationDirection
   className?: string
-  size?: 'small' | 'medium' | 'large'
-  setCurrent?: (current: string) => void
+  size?: NavigationSize
 }
 
-export function NavigationImpl({
+function NavigationImpl({
   children,
-  current: propCurrent,
-  defaultCurrent = '',
   direction = 'horizontal',
   className,
   size = 'medium',
-  setCurrent: propSetCurrent,
   ...props
 }: NavigationImplProps) {
-  const [internalCurrent, setInternalCurrent] = useState(() => propCurrent ?? defaultCurrent)
-  const current = propCurrent ?? internalCurrent
-  const setCurrent = propSetCurrent ?? setInternalCurrent
-
-  useEffect(() => {
-    if (propCurrent !== undefined) {
-      setInternalCurrent(propCurrent)
-    }
-  }, [propCurrent])
-
   return (
     <NavigationContextProvider
       size={size}
-      current={current}
-      setCurrent={setCurrent}
+      direction={direction}
       {...props}>
       <nav
         className={clsx(navigationStyle({ direction }), className)}
