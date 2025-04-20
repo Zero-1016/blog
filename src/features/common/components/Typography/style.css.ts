@@ -12,6 +12,9 @@ export const fontSizeVariants = {
 
 export const colorVariants = {
   primary: 'primary',
+  grey: 'grey',
+  white100: 'white100',
+  white90: 'white90',
   textPrimary: 'textPrimary',
   textSecondary: 'textSecondary',
   inherit: 'inherit'
@@ -60,6 +63,15 @@ export const typography = recipe({
       },
       [colorVariants.textSecondary]: {
         color: vars.colors.textSecondary
+      },
+      [colorVariants.grey]: {
+        color: vars.colors.grey
+      },
+      [colorVariants.white100]: {
+        color: vars.colors.white100
+      },
+      [colorVariants.white90]: {
+        color: vars.colors.white90
       },
       [colorVariants.inherit]: {
         color: 'inherit'
