@@ -1,13 +1,13 @@
 import { type ComponentProps } from 'react'
-import { useButtonContext } from '../context'
+import { useTextButtonContext } from '../context'
 import { Icon } from '../../Icon'
 
-type ButtonIconProps = Omit<ComponentProps<typeof Icon>, 'size'> & {
+type TextButtonIconProps = Omit<ComponentProps<typeof Icon>, 'size'> & {
   size?: 'small' | 'medium' | 'large'
 }
 
-export const ButtonIcon = ({ size: propSize, name, ...restProps }: ButtonIconProps) => {
-  const { size: ctxSize } = useButtonContext()
+export const TextButtonIcon = ({ size: propSize, name, ...restProps }: TextButtonIconProps) => {
+  const { size: ctxSize } = useTextButtonContext()
   const size = propSize ?? ctxSize
 
   return (

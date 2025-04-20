@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { Txt } from '.'
+import { Txt } from './Typography'
 import { fontSizeVariants, colorVariants } from './style.css'
+import '@/styles/theme.css'
 
 describe('Typography', () => {
   it('기본 텍스트를 렌더링한다', () => {
@@ -24,9 +25,13 @@ describe('Typography', () => {
   })
 
   it('색상 변형을 적용한다', () => {
-    const { container } = render(<Txt color={colorVariants.textPrimary}>주요 텍스트</Txt>)
+    const { container } = render(<Txt color={colorVariants.primary}>주요 텍스트</Txt>)
     const element = container.firstChild as HTMLElement
-    expect(element.className).toMatch(/textPrimary/)
+
+    expect(element.className).toContain(colorVariants.primary)
+
+    const classNames = element.className.split(' ')
+    expect(classNames.some((className) => className.includes('_color_primary'))).toBe(true)
   })
 
   it('추가 props를 전달한다', () => {
