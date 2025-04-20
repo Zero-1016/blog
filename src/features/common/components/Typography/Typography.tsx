@@ -1,7 +1,7 @@
 import { type RecipeVariants } from '@vanilla-extract/recipes'
 import { typography, fontSizeVariants } from './style.css'
 import { Slot } from '@radix-ui/react-slot'
-import { type ComponentPropsWithRef, type ElementType } from 'react'
+import { type ComponentPropsWithRef, type ElementType, forwardRef } from 'react'
 import { clsx } from 'clsx'
 
 type TxtProps<C extends ElementType> = {
@@ -11,14 +11,12 @@ type TxtProps<C extends ElementType> = {
 
 export type TxtVariant = RecipeVariants<typeof typography>
 
-export function Txt<C extends ElementType>({
-  color,
-  children,
-  fontSize = fontSizeVariants.body,
-  asChild,
-  ref,
-  ...restProps
-}: TxtProps<C>) {
+export const Txt = forwardRef<HTMLParagraphElement, TxtProps<ElementType>>(function Txt<
+  C extends ElementType = 'p'
+>(
+  { color, children, fontSize = fontSizeVariants.body, asChild, ...restProps }: TxtProps<C>,
+  ref: ComponentPropsWithRef<C>['ref']
+) {
   const Component = asChild ? Slot : variantToHtmlTag[fontSize]
   const className = clsx(typography({ fontSize, color }))
 
@@ -30,7 +28,7 @@ export function Txt<C extends ElementType>({
       {children}
     </Component>
   )
-}
+})
 
 const variantToHtmlTag = {
   [fontSizeVariants.h1]: 'h1',
