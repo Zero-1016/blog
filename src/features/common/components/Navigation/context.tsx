@@ -1,17 +1,18 @@
+'use client'
+
 import { createCtxProvider } from '@/utils/createContextProvider'
+import { type NavigationSize, type NavigationDirection } from './type'
 
 type NavigationContextValue = {
-  current: string
-  setCurrent: (target: string) => void
-  size: 'small' | 'medium' | 'large'
+  size: NavigationSize
+  direction: NavigationDirection
 }
 
 const [NavigationContextProvider, useNavigationContext] = createCtxProvider<NavigationContextValue>(
   'Navigation',
   {
-    current: '',
-    setCurrent: () => {},
-    size: 'medium'
+    size: 'medium',
+    direction: 'horizontal'
   }
 )
 

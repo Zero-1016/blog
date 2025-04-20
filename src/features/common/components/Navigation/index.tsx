@@ -1,2 +1,2 @@
-export * from './Navigation'
-export * from './style.css'
+export { Navigation } from './Navigation'
+export type { NavigationSize, NavigationDirection } from './type.ts'

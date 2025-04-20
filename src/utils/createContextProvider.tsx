@@ -1,3 +1,5 @@
+'use client'
+
 import { useContext, createContext, type ReactNode, useMemo } from 'react'
 
 type ProviderProps<T> = {
