@@ -7,7 +7,7 @@ type TextButtonIconProps = Omit<ComponentProps<typeof Icon>, 'size'> & {
 }
 
 export const TextButtonIcon = ({ size: propSize, name, ...restProps }: TextButtonIconProps) => {
-  const { size: ctxSize } = useTextButtonContext()
+  const { size: ctxSize } = useTextButtonContext('TextButton.Icon')
   const size = propSize ?? ctxSize
 
   return (

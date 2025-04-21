@@ -1,5 +1,3 @@
-'use client'
-
 import { useContext, createContext, type ReactNode, useMemo } from 'react'
 
 type ProviderProps<T> = {
@@ -26,10 +24,10 @@ export function createCtxProvider<T extends Record<string, unknown>>(
 
   Provider.displayName = componentName + 'Provider'
 
-  function useCtx() {
+  function useCtx(displayName: string) {
     const value = useContext(Context)
     if (value === undefined) {
-      throw new Error(`${componentName} Context must be used within its provider`)
+      throw new Error(`${displayName} Context must be used within its ${componentName} provider`)
     }
     return value
   }

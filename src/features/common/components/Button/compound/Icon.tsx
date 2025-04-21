@@ -7,7 +7,7 @@ type ButtonIconProps = Omit<ComponentProps<typeof Icon>, 'size'> & {
 }
 
 export const ButtonIcon = ({ size: propSize, name, ...restProps }: ButtonIconProps) => {
-  const { size: ctxSize } = useButtonContext()
+  const { size: ctxSize } = useButtonContext('Button.Icon')
   const size = propSize ?? ctxSize
 
   return (

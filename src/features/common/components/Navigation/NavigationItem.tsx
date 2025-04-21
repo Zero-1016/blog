@@ -9,7 +9,7 @@ type NavigationItemProps = Omit<ComponentProps<typeof Link>, 'href'> & {
   isActive?: boolean
 }
 export const NavigationItem = ({ href, children, ...restProps }: NavigationItemProps) => {
-  const { size = 'medium' } = useNavigationContext()
+  const { size = 'medium' } = useNavigationContext('NavigationItem')
   const pathname = usePathname()
 
   const fontSize = TXT_SIZE_MAP[size]

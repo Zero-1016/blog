@@ -12,7 +12,7 @@ export const ButtonTxt = ({
   variant: propVariant,
   ...restProps
 }: ButtonTxtProps) => {
-  const { size: ctxSize, variant: ctxVariant } = useButtonContext()
+  const { size: ctxSize, variant: ctxVariant } = useButtonContext('Button.Txt')
   const variant = propVariant ?? ctxVariant
   const size = propSize ?? ctxSize
 
