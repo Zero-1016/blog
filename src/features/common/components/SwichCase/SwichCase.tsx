@@ -1,4 +1,4 @@
-type SwitchCaseProps = {
+export type SwitchCaseProps = {
   value: string
   cases: Record<string, React.ReactNode>
   defaultComponent?: React.ReactNode
