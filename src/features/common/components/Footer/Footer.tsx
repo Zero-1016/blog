@@ -1,13 +1,12 @@
 import { type CommonProps } from '@/types/common'
-import { Txt } from '../Typography'
 import clsx from 'clsx'
 import * as styles from './style.css'
 import { Flex } from '../Flex'
-export interface FooterProps extends CommonProps {
-  label: React.ReactNode
-}
+import { type ComponentProps } from 'react'
 
-export function Footer({ label, className: classNameFromProps, ...props }: FooterProps) {
+export type FooterProps = CommonProps & ComponentProps<'footer'>
+
+export function Footer({ children, className: classNameFromProps, ...props }: FooterProps) {
   return (
     <Flex
       asChild
@@ -16,7 +15,7 @@ export function Footer({ label, className: classNameFromProps, ...props }: Foote
       <footer
         className={clsx(styles.container, classNameFromProps)}
         {...props}>
-        <Txt size='bodySm'>{label}</Txt>
+        {children}
       </footer>
     </Flex>
   )
