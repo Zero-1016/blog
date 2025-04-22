@@ -6,15 +6,20 @@ import { Txt } from '../Typography'
 import * as style from './style.css'
 import Link from 'next/link'
 import { type NavigationItem } from './type'
+import { type ComponentProps } from 'react'
+import clsx from 'clsx'
 
 export type HeaderProps = {
   logoTitle: string
   navigationItems: NavigationItem[]
-}
+} & ComponentProps<'header'>
 
-export function Header({ logoTitle, navigationItems }: HeaderProps) {
+export function Header(props: HeaderProps) {
+  const { logoTitle, navigationItems, className: classNameFromProps, ...restProps } = props
   return (
-    <header className={style.container}>
+    <header
+      className={clsx(style.container, classNameFromProps)}
+      {...restProps}>
       <Flex
         asChild
         justify='between'
