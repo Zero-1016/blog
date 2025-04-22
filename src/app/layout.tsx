@@ -1,11 +1,20 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import { pretendard } from '@/styles/fonts/pretendard'
-import { Header } from '@/features/common/components/Header'
+import { Header, type HeaderProps } from '@/features/common/components/Header'
 export const metadata: Metadata = {
   title: '개발자 지형',
   description: '개발자 지형의 기술 블로그'
 }
+
+const headerProps: HeaderProps = {
+  logoTitle: 'Dev Notes',
+  navigationItems: [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' }
+  ]
+} as const
 
 export default function Layout({
   children
@@ -17,7 +26,7 @@ export default function Layout({
       className={pretendard.variable}
       lang='ko'>
       <body>
-        <Header />
+        <Header {...headerProps} />
         {children}
       </body>
     </html>

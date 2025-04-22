@@ -59,6 +59,14 @@ export const vars = createGlobalTheme(':root', {
     normal: '1.5',
     relaxed: '1.625',
     loose: '2'
+  },
+  width: {
+    section: '768px',
+    container: '1200px'
+  },
+  height: {
+    header: '4rem',
+    footer: '4rem'
   }
 })
 
