@@ -5,23 +5,14 @@ import { Navigation } from '../Navigation'
 import { Txt } from '../Typography'
 import * as style from './style.css'
 import Link from 'next/link'
-const LogoTitle = 'Dev Notes'
+import { type NavigationItem } from './type'
 
-const NavigationItems = [
-  {
-    label: 'Home',
-    href: '/'
-  },
-  {
-    label: 'About',
-    href: '/about'
-  },
-  {
-    label: 'Contact',
-    href: '/contact'
-  }
-]
-export const Header = () => {
+export type HeaderProps = {
+  logoTitle: string
+  navigationItems: NavigationItem[]
+}
+
+export function Header({ logoTitle, navigationItems }: HeaderProps) {
   return (
     <header className={style.container}>
       <Flex
@@ -30,10 +21,10 @@ export const Header = () => {
         align='center'>
         <div className={style.navWrapper}>
           <Link href='/'>
-            <Txt fontSize='h2'>{LogoTitle}</Txt>
+            <Txt fontSize='h2'>{logoTitle}</Txt>
           </Link>
           <Navigation size='large'>
-            {NavigationItems.map((item) => (
+            {navigationItems.map((item) => (
               <Navigation.Item
                 key={item.href}
                 href={item.href}>

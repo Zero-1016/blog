@@ -14,6 +14,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    logoTitle: 'Dev Notes',
+    navigationItems: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' }
+    ]
+  },
   decorators: [
     (Story) => (
       <div
@@ -27,5 +35,5 @@ export const Default: Story = {
       </div>
     )
   ],
-  render: () => <Header />
+  render: (args) => <Header {...args} />
 }
