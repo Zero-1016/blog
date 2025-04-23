@@ -20,6 +20,17 @@ describe('SwitchCase', () => {
     expect(container).not.toHaveTextContent('Case B')
   })
 
+  it('value로 boolean 값과 문자열 둘다 받는다.', () => {
+    const { container } = render(
+      <SwitchCase
+        value={true}
+        cases={{ true: <div>Case A</div>, false: <div>Case B</div>, 0: <div>Case C</div> }}
+      />
+    )
+
+    expect(container).toHaveTextContent('Case A')
+  })
+
   it('일치하는 case가 없으면 defaultComponent를 렌더링한다', () => {
     const { container } = render(
       <SwitchCase
