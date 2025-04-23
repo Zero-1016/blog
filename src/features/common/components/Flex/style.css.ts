@@ -1,4 +1,4 @@
-import { recipe } from '@vanilla-extract/recipes'
+import { recipe, type RecipeVariants } from '@vanilla-extract/recipes'
 
 export const flexStyle = recipe({
   base: {
@@ -78,3 +78,5 @@ export const flexStyle = recipe({
     }
   }
 })
+
+export type FlexRecipeProps = RecipeVariants<typeof flexStyle>

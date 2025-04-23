@@ -65,4 +65,4 @@ export const textButtonRecipe = recipe({
   }
 })
 
-export type TextButtonProps = RecipeVariants<typeof textButtonRecipe>
+export type TextButtonRecipeProps = RecipeVariants<typeof textButtonRecipe>

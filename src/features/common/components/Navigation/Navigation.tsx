@@ -1,30 +1,27 @@
 import { type HTMLAttributes } from 'react'
 import { NavigationItem } from './NavigationItem'
 import { NavigationContextProvider } from './context'
-import { navigationStyle } from './style.css'
+import { navigationStyle, type NavigationRecipeProps } from './style.css'
 import clsx from 'clsx'
-import { type NavigationDirection, type NavigationSize } from './type'
 
-type NavigationImplProps = HTMLAttributes<HTMLDivElement> & {
-  direction?: NavigationDirection
+export type NavigationProps = HTMLAttributes<HTMLDivElement> & {
   className?: string
-  size?: NavigationSize
-}
+} & NavigationRecipeProps
 
 function NavigationImpl({
   children,
   direction = 'horizontal',
-  className,
   size = 'medium',
+  className,
   ...props
-}: NavigationImplProps) {
+}: NavigationProps) {
   return (
     <NavigationContextProvider
       size={size}
       direction={direction}
       {...props}>
       <nav
-        className={clsx(navigationStyle({ direction }), className)}
+        className={clsx(navigationStyle({ direction, size }), className)}
         {...props}>
         {children}
       </nav>

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { Icon } from '.'
+import { Icon } from './Icon'
 
 describe('Icon 컴포넌트', () => {
   it('기본 아이콘이 정상적으로 렌더링되어야 한다', () => {

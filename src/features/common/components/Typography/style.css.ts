@@ -1,4 +1,4 @@
-import { recipe } from '@vanilla-extract/recipes'
+import { recipe, type RecipeVariants } from '@vanilla-extract/recipes'
 import { vars } from '@/styles/theme.css'
 
 export const fontSizeVariants = {
@@ -82,3 +82,5 @@ export const typography = recipe({
     fontSize: fontSizeVariants.body
   }
 })
+
+export type TxtRecipeProps = RecipeVariants<typeof typography>

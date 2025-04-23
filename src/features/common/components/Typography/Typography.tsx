@@ -1,5 +1,4 @@
-import { type RecipeVariants } from '@vanilla-extract/recipes'
-import { typography, fontSizeVariants } from './style.css'
+import { typography, fontSizeVariants, type TxtRecipeProps } from './style.css'
 import { Slot } from '@radix-ui/react-slot'
 import { type ComponentPropsWithRef, type ElementType, forwardRef, type CSSProperties } from 'react'
 import { clsx } from 'clsx'
@@ -8,10 +7,8 @@ type TxtProps<C extends ElementType> = {
   className?: string
   style?: CSSProperties
   asChild?: boolean
-} & TxtVariant &
-  Omit<ComponentPropsWithRef<C>, keyof TxtVariant>
-
-export type TxtVariant = RecipeVariants<typeof typography>
+} & TxtRecipeProps &
+  Omit<ComponentPropsWithRef<C>, keyof TxtRecipeProps>
 
 export const Txt = forwardRef<HTMLParagraphElement, TxtProps<ElementType>>(function Txt<
   C extends ElementType = 'p'

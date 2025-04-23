@@ -3,18 +3,22 @@ import { useNavigationContext } from './context'
 import { Txt, type TxtSize, type TxtColor } from '../Typography'
 import Link from 'next/link'
 import { navigationItemStyle } from './style.css'
-import { usePathname } from 'next/navigation'
+import { type NavigationStatus, type NavigationSize } from './type'
+
 type NavigationItemProps = Omit<ComponentProps<typeof Link>, 'href'> & {
   href: string
-  isActive?: boolean
+  status?: NavigationStatus
 }
-export const NavigationItem = ({ href, children, ...restProps }: NavigationItemProps) => {
+export const NavigationItem = ({
+  href,
+  children,
+  status = 'default',
+  ...restProps
+}: NavigationItemProps) => {
   const { size = 'medium' } = useNavigationContext('NavigationItem')
-  const pathname = usePathname()
 
   const fontSize = TXT_SIZE_MAP[size]
-
-  const isActive = pathname === href
+  const isActive = status === 'current'
   const textColor = TXT_COLOR_MAP[isActive ? 'current' : 'default']
 
   return (
@@ -31,13 +35,13 @@ export const NavigationItem = ({ href, children, ...restProps }: NavigationItemP
   )
 }
 
-const TXT_SIZE_MAP: Record<string, TxtSize> = {
+const TXT_SIZE_MAP: Record<NavigationSize, TxtSize> = {
   small: 'caption',
   medium: 'bodySm',
   large: 'body'
 } as const
 
-const TXT_COLOR_MAP: Record<string, TxtColor> = {
+const TXT_COLOR_MAP: Record<NavigationStatus, TxtColor> = {
   current: 'primary',
   default: 'textSecondary'
 } as const

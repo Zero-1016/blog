@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { Flex } from '.'
+import { Flex } from './Flex'
 
 describe('Flex', () => {
   it('자식 요소들이 올바르게 렌더링된다', () => {

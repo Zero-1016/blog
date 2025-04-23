@@ -4,8 +4,7 @@ import { Slot } from '@radix-ui/react-slot'
 import { getGapSizeFromNumber } from './utils'
 import { type HTMLAttributes } from 'react'
 import clsx from 'clsx'
-import { type FlexRecipeProps } from './type'
-
+import { type FlexRecipeProps } from './style.css'
 export type FlexProps = FlexRecipeProps &
   CommonProps & {
     gap?: number

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { recipe } from '@vanilla-extract/recipes'
+import { recipe, type RecipeVariants } from '@vanilla-extract/recipes'
 
 export const navigationStyle = recipe({
   base: {
@@ -32,6 +32,8 @@ export const navigationStyle = recipe({
     size: 'medium'
   }
 })
+
+export type NavigationRecipeProps = RecipeVariants<typeof navigationStyle>
 
 export const navigationItemStyle = style({
   cursor: 'pointer',

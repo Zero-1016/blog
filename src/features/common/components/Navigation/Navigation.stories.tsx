@@ -48,12 +48,20 @@ export default function Home() {
     return (
       <Navigation>
         <Navigation.Item
-          isActive
+          status='current'
           href='/home'>
           Home
         </Navigation.Item>
-        <Navigation.Item href='/about'>About</Navigation.Item>
-        <Navigation.Item href='/post'>Post</Navigation.Item>
+        <Navigation.Item
+          status='default'
+          href='/about'>
+          About
+        </Navigation.Item>
+        <Navigation.Item
+          status='default'
+          href='/post'>
+          Post
+        </Navigation.Item>
       </Navigation>
     )
   }

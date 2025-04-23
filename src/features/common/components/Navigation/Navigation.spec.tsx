@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { Navigation } from '.'
+import { Navigation } from './Navigation'
 import { NavigationItem } from './NavigationItem'
 
 describe('Navigation', () => {
