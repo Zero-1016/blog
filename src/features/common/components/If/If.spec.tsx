@@ -1,4 +1,3 @@
-// src/features/common/components/If/If.spec.tsx
 import { render } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { If } from './If'

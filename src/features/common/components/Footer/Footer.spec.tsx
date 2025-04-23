@@ -1,4 +1,3 @@
-// src/features/common/components/Footer/Footer.spec.tsx
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { Footer } from './Footer'
