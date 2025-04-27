@@ -49,3 +49,10 @@ next-env.d.ts
 !.yarn/sdks
 !.yarn/versions
 *storybook.log
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
