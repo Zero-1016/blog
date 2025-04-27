@@ -70,3 +70,6 @@ jobs:
         
       - name: Run Tests
         run: yarn test --no-browser
+        
+      - name: Run Playwright Tests
+        run: yarn test:play
