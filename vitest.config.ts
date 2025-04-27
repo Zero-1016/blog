@@ -11,7 +11,7 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     include: ['**/*.spec.{ts,tsx}'],
-    exclude: ['node_modules', '.storybook/**/*', '**/*.stories.{ts,tsx}'],
+    exclude: ['node_modules', '.storybook/**/*', '**/*.stories.{ts,tsx}', 'src/test/e2e/**/*'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
