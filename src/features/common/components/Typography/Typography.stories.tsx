@@ -97,8 +97,16 @@ export const Colors: Story = {
   },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Txt color={colorVariants.textPrimary}>주요 텍스트 색상 (textPrimary)</Txt>
-      <Txt color={colorVariants.textSecondary}>보조 텍스트 색상 (textSecondary)</Txt>
+      <Txt
+        data-testid='text-primary'
+        color={colorVariants.textPrimary}>
+        주요 텍스트 색상 (textPrimary)
+      </Txt>
+      <Txt
+        data-testid='text-secondary'
+        color={colorVariants.textSecondary}>
+        보조 텍스트 색상 (textSecondary)
+      </Txt>
     </div>
   )
 }

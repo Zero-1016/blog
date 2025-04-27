@@ -1,4 +1,4 @@
-name: 'Blog Storybook Deployment'
+name: 'Storybook'
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   chromatic:
-    name: 'Blog Storybook Deployment'
+    name: 'Storybook Deployment'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
