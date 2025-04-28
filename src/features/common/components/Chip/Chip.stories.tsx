@@ -30,3 +30,12 @@ export const Default: Story = {
     size: 'medium'
   }
 }
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Chip',
+    color: 'primary',
+    size: 'medium',
+    leftAddon: <Chip.Icon name='Check' />
+  }
+}

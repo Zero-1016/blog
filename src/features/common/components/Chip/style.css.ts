@@ -4,6 +4,9 @@ import { recipe, type RecipeVariants } from '@vanilla-extract/recipes'
 
 export const chipStyle = recipe({
   base: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: vars.borderRadius.full
   },
   variants: {
@@ -41,11 +44,11 @@ export const chipStyle = recipe({
 })
 
 export const chipLeftAddonStyle = style({
-  paddingRight: '4px'
+  paddingRight: '2px'
 })
 
 export const chipRightAddonStyle = style({
-  paddingLeft: '4px'
+  paddingLeft: '2px'
 })
 
 export type ChipRecipeProps = RecipeVariants<typeof chipStyle>

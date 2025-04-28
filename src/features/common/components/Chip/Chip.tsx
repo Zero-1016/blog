@@ -2,17 +2,18 @@ import { type ComponentProps, type ElementType } from 'react'
 import { If } from '../If'
 import * as style from './style.css'
 import clsx from 'clsx'
-import { type ChipRecipeProps } from './style.css'
+import { type ChipColor, type ChipSize } from './type'
+import { ChipIcon } from './compound/Icon'
+export type ChipProps = ComponentProps<'div'> & {
+  children: React.ReactNode
+  as?: ElementType
+  leftAddon?: React.ReactNode
+  rightAddon?: React.ReactNode
+  color?: ChipColor
+  size?: ChipSize
+}
 
-export type ChipProps = ComponentProps<'div'> &
-  ChipRecipeProps & {
-    children: React.ReactNode
-    as?: ElementType
-    leftAddon?: React.ReactNode
-    rightAddon?: React.ReactNode
-  }
-
-export const Chip = ({
+const ChipImpl = ({
   children,
   leftAddon,
   rightAddon,
@@ -38,3 +39,7 @@ export const Chip = ({
     </Component>
   )
 }
+
+export const Chip = Object.assign(ChipImpl, {
+  Icon: ChipIcon
+})
