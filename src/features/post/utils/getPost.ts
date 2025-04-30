@@ -1,5 +1,5 @@
 import path from 'path'
-import { statSync, readFileSync } from 'fs'
+import { stat, readFile } from 'fs/promises'
 import { type PostFrontmatter, type PostFile } from '../types/post'
 import { parseFrontmatter } from './parseFrontmatter'
 
