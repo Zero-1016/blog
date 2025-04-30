@@ -12,8 +12,8 @@ type PostContent = PostFile & {
 export const getPost = async (fileName: string): Promise<PostContent> => {
   const postsPath = path.join(process.cwd(), '_posts')
   const filePath = path.join(postsPath, fileName)
-  const stats = statSync(filePath)
-  const content = readFileSync(filePath, 'utf-8')
+  const stats = await stat(filePath)
+  const content = await readFile(filePath, 'utf-8')
   const { frontmatter, content: body } = parseFrontmatter(content)
 
   return {
