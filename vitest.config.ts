@@ -9,15 +9,20 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['./src/test/setup.ts'],
-    include: ['**/*.spec.{ts,tsx}'],
-    exclude: ['node_modules', '.storybook/**/*', '**/*.stories.{ts,tsx}', 'src/test/e2e/**/*'],
+    setupFiles: ['./src/features/common/utils/testSetup.ts'],
+    include: ['src/**/*.spec.{ts,tsx}'],
+    exclude: [
+      'node_modules',
+      '.storybook/**/*',
+      '**/*.stories.{ts,tsx}',
+      'src/features/common/utils/testSetup.ts'
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
       exclude: [
         'node_modules/',
-        'src/test/setup.ts',
+        'src/features/common/utils/testSetup.ts',
         '**/*.d.ts',
         '**/*.config.{js,ts}',
         '**/*.stories.{js,jsx,ts,tsx}'

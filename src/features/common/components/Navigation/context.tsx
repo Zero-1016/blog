@@ -1,6 +1,6 @@
 'use client'
 
-import { createCtxProvider } from '@/utils/createContextProvider'
+import { createCtxProvider } from '@/features/common/utils/createContextProvider'
 import { type NavigationSize, type NavigationDirection } from './type'
 
 type NavigationContextValue = {
