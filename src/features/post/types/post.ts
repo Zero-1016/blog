@@ -1,3 +1,10 @@
+export type Post = {
+  fileName: string
+  createdAt: Date
+  modifiedAt: Date
+  frontmatter: PostFrontmatter
+}
+
 export type PostFile = {
   fileName: string
   createdAt: Date
