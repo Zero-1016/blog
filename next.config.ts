@@ -6,7 +6,13 @@ const withVanillaExtract = createVanillaExtractPlugin({
 })
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        hostname: '**' // Allow all remote patterns
+      }
+    ]
+  }
 }
 
 export default withVanillaExtract(nextConfig)
