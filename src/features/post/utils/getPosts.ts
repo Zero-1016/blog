@@ -1,10 +1,10 @@
 import path from 'path'
 import { readdir, stat, readFile } from 'fs/promises'
-import { type PostFile } from '../types/post'
+import { type Post } from '../types/post'
 import { parseFrontmatter } from './parseFrontmatter'
 
 // 모든 포스트를 가져오는 함수
-export const getPosts = async (): Promise<PostFile[]> => {
+export const getPosts = async (): Promise<Post[]> => {
   const postsPath = path.join(process.cwd(), '_posts')
   const files = (await readdir(postsPath)) as unknown as string[]
 
