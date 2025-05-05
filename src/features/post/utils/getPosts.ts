@@ -24,5 +24,3 @@ export const getPosts = async (): Promise<Post[]> => {
     })
   )
 }
-
-getPosts().then(console.log)
