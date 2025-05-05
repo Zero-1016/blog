@@ -6,23 +6,20 @@ import * as styles from './styles.css'
 import { Icon } from '@/features/common/components/Icon'
 import { Chip } from '@/features/common/components/Chip'
 import Link from 'next/link'
+import { type Post } from '../../types/post'
 
-export type CardProps = {
-  title: string
-  description: string
-  image: string
-  createdAt: Date | string
-  tags: string[]
-}
+export type CardProps = Post
 
-export const Card = ({ title, description, image, createdAt, tags }: CardProps) => {
+export const Card = ({ fileName, frontmatter, createdAt }: CardProps) => {
+  const { title, description, image, tags } = frontmatter
+
   return (
     <Flex
       align='center'
       justify='between'
       className={styles.card}
       asChild>
-      <Link href={`/posts/${title}`}>
+      <Link href={`/posts/${fileName}`}>
         <Flex>
           <div className={styles.imageContainer}>
             <Image

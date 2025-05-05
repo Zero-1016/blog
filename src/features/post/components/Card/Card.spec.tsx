@@ -5,11 +5,16 @@ import '@testing-library/jest-dom'
 import { describe, it, expect } from 'vitest'
 
 const defaultProps: CardProps = {
-  title: '테스트 제목',
-  description: '테스트 설명',
-  image: '/test.jpg',
-  createdAt: new Date('2024-06-01').toISOString(),
-  tags: ['태그1', '태그2']
+  fileName: 'test-file-name',
+  frontmatter: {
+    title: '테스트 제목',
+    description: '테스트 설명',
+    image: '/test.jpg',
+    tags: ['태그1', '태그2'],
+    date: new Date('2024-06-01')
+  },
+  createdAt: new Date('2024-06-01'),
+  modifiedAt: new Date('2024-06-01')
 }
 
 describe('Card', () => {
