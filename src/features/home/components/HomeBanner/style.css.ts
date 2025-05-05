@@ -10,3 +10,7 @@ export const container = style({
   maxWidth: vars.width.section,
   height: '100%'
 })
+
+export const button = style({
+  width: 'fit-content'
+})

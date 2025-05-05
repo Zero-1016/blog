@@ -3,7 +3,8 @@ import * as style from './style.css'
 import { Button } from '@/common/components/Button'
 import { Icon } from '@/common/components/Icon'
 import { Flex } from '@/utils/Flex'
-
+import Link from 'next/link'
+import { getSitePath } from '@/common/utils/getSitePath'
 export const HomeBanner = () => {
   return (
     <div className={style.container}>
@@ -24,14 +25,16 @@ export const HomeBanner = () => {
             React, TypeScript, 그리고 모던 웹 개발에 대한 이야기를 공유합니다.
           </Txt>
         </Flex>
-        <div>
+        <Link
+          href={getSitePath.postAll}
+          className={style.button}>
           <Button
             size='medium'
             rightAddon={<Icon name='ArrowRight' />}
             variant='primary'>
             글 보기
           </Button>
-        </div>
+        </Link>
       </Flex>
     </div>
   )

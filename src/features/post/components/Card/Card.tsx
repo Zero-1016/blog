@@ -12,6 +12,8 @@ export type CardProps = Post
 
 export const Card = ({ fileName, frontmatter, createdAt }: CardProps) => {
   const { title, description, image, tags } = frontmatter
+  const omitExtension = fileName.split('.')[0]
+  const fileUrl = `/posts/${omitExtension}`
 
   return (
     <Flex
@@ -19,7 +21,7 @@ export const Card = ({ fileName, frontmatter, createdAt }: CardProps) => {
       justify='between'
       className={styles.card}
       asChild>
-      <Link href={`/posts/${fileName}`}>
+      <Link href={fileUrl}>
         <Flex>
           <div className={styles.imageContainer}>
             <Image
