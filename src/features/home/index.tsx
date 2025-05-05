@@ -1,1 +1,1 @@
-export { Container as HomeContainer } from './container'
+export { Container as HomeContainer } from './Container'

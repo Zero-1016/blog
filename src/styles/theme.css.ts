@@ -67,6 +67,9 @@ export const vars = createGlobalTheme(':root', {
   height: {
     header: '4rem',
     footer: '4rem'
+  },
+  zIndex: {
+    header: '100'
   }
 })
 

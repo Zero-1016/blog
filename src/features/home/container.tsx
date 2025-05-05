@@ -1,16 +1,11 @@
-import { Flex } from '@/utils/Flex'
-import { Card } from '../post/components/Card/Card'
+import { CardList } from './components/CardList'
 import { type Post } from '../post/types/post'
+import * as style from './styles.css'
 
 export const Container = ({ posts }: { posts: Post[] }) => {
   return (
-    <Flex>
-      {posts.map((post) => (
-        <Card
-          key={post.fileName}
-          {...post}
-        />
-      ))}
-    </Flex>
+    <div className={style.container}>
+      <CardList posts={posts} />
+    </div>
   )
 }
