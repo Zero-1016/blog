@@ -1,6 +1,6 @@
 import { type ComponentProps } from 'react'
 import { useButtonContext } from '../context'
-import { Icon } from '../../Icon'
+import { Icon } from '@/common/components/Icon'
 
 type ButtonIconProps = Omit<ComponentProps<typeof Icon>, 'size'> & {
   size?: 'small' | 'medium' | 'large'

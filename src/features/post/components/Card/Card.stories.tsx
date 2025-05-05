@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Card } from './Card'
-import { fn } from '@storybook/test'
 const meta = {
   title: 'Post/Card',
   component: Card,
@@ -37,8 +36,7 @@ export const Default: Story = {
       'Next.js와 TypeScript로 더 나은 웹 개발하기, 오늘 배운 것 리액트 18의 새로운 기능과 성능 최적화 전략',
     image: '/assets/post/react.png',
     createdAt: new Date().toISOString(),
-    tags: ['Next.js', 'TypeScript', 'React', 'Web Development'],
-    onClick: () => fn()
+    tags: ['Next.js', 'TypeScript', 'React', 'Web Development']
   },
   render: (args) => <Card {...args} />
 }

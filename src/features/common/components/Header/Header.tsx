@@ -1,8 +1,8 @@
 'use client'
 
-import { Flex } from '../Flex'
-import { Navigation } from '../Navigation'
-import { Txt } from '../Typography'
+import { Flex } from '@/utils/Flex'
+import { Navigation } from '@/common/components/Navigation'
+import { Txt } from '@/common/components/Typography'
 import * as style from './style.css'
 import Link from 'next/link'
 import { type NavigationItem } from './type'

@@ -1,4 +1,4 @@
-import { createCtxProvider } from '@/features/common/utils/createContextProvider'
+import { createCtxProvider } from '@/utils/createContextProvider'
 
 type TextButtonContextValue = {
   size: 'small' | 'medium' | 'large'

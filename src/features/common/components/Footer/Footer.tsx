@@ -1,8 +1,8 @@
 import { type CommonProps } from '@/types/common'
 import clsx from 'clsx'
 import * as styles from './style.css'
-import { Flex } from '../Flex'
 import { type ComponentProps } from 'react'
+import { Flex } from '@/utils/Flex'
 
 export type FooterProps = CommonProps & ComponentProps<'footer'>
 
