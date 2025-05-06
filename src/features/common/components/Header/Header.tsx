@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { type NavigationItem } from './type'
 import { type ComponentProps } from 'react'
 import clsx from 'clsx'
-
+import { usePathname } from 'next/navigation'
 export type HeaderProps = {
   logoTitle: string
   navigationItems: NavigationItem[]
@@ -16,6 +16,7 @@ export type HeaderProps = {
 
 export function Header(props: HeaderProps) {
   const { logoTitle, navigationItems, className: classNameFromProps, ...restProps } = props
+  const pathname = usePathname()
   return (
     <header
       className={clsx(style.container, classNameFromProps)}
@@ -31,6 +32,7 @@ export function Header(props: HeaderProps) {
           <Navigation size='large'>
             {navigationItems.map((item) => (
               <Navigation.Item
+                status={item.href === pathname ? 'current' : 'default'}
                 key={item.href}
                 href={item.href}>
                 {item.label}
