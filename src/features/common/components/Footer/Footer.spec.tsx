@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { Footer } from './Footer'
 import { Icon } from '../Icon'
 import { Txt } from '../Typography'
-import { Flex } from '../Flex'
+import { Flex } from '../../utils/Flex'
 
 describe('Footer', () => {
   it('children을 렌더링한다', () => {

@@ -14,6 +14,7 @@ export const vars = createGlobalTheme(':root', {
   padding: {
     container: '2rem',
     section: '3rem',
+    root: '80px',
     small: '0.5rem',
     medium: '0.75rem',
     large: '1rem',
@@ -67,6 +68,9 @@ export const vars = createGlobalTheme(':root', {
   height: {
     header: '4rem',
     footer: '4rem'
+  },
+  zIndex: {
+    header: '100'
   }
 })
 

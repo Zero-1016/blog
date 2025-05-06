@@ -5,7 +5,7 @@ export const card = style({
   cursor: 'pointer',
   width: '100%',
   height: '230px',
-  minWidth: vars.width.section,
+  maxWidth: vars.width.section,
   borderRadius: vars.borderRadius.large,
   backgroundColor: vars.colors.white100,
   padding: '20px'

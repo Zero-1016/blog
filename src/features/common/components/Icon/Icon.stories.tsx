@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Icon } from '.'
+import { Icon } from '@/common/components/Icon'
 import { icons } from 'lucide-react'
 const meta = {
   title: 'Common/Icon',

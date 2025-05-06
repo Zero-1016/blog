@@ -1,9 +1,10 @@
 import { type ComponentProps, type ElementType } from 'react'
-import { If } from '../If'
 import * as style from './style.css'
 import clsx from 'clsx'
 import { type ChipColor, type ChipSize } from './type'
 import { ChipIcon } from './compound/Icon'
+import { If } from '@/utils/If'
+
 export type ChipProps = ComponentProps<'div'> & {
   children: React.ReactNode
   as?: ElementType

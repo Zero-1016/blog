@@ -1,6 +1,6 @@
 import { type ComponentProps } from 'react'
 import { useChipContext } from '../context'
-import { Icon } from '../../Icon'
+import { Icon } from '@/common/components/Icon'
 import { vars } from '@/styles/theme.css'
 import type { ChipColor } from '../type'
 type ChipIconProps = ComponentProps<typeof Icon> & {

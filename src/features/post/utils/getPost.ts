@@ -8,7 +8,7 @@ type PostContent = PostFile & {
   content: string
 }
 
-// 모든 포스트를 가져오는 함수
+// 특정 포스트를 가져오는 함수
 export const getPost = async (fileName: string): Promise<PostContent> => {
   const postsPath = path.join(process.cwd(), '_posts')
   const filePath = path.join(postsPath, fileName)
@@ -24,5 +24,3 @@ export const getPost = async (fileName: string): Promise<PostContent> => {
     content: body
   }
 }
-
-getPost('test1.mdx').then(console.log)

@@ -1,4 +1,4 @@
-import { Txt } from '@/features/common/components/Typography'
+import { Txt } from '@/common/components/Typography'
 import { type ComponentProps } from 'react'
 import { useButtonContext } from '../context'
 

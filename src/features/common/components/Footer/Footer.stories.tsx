@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Footer } from './Footer'
 import { Icon } from '../Icon'
 import { Txt } from '../Typography'
-import { Flex } from '../Flex'
+import { Flex } from '@/utils/Flex'
 const meta = {
   title: 'Common/Footer',
   component: Footer,
