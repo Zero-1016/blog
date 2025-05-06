@@ -6,14 +6,15 @@ import * as styles from './styles.css'
 import { Icon } from '@/features/common/components/Icon'
 import { Chip } from '@/features/common/components/Chip'
 import Link from 'next/link'
-import { type Post } from '../../types/post'
+import { type Post } from '@/features/post/types/post'
+import { getSitePath } from '@/utils/getSitePath'
 
 export type CardProps = Post
 
 export const Card = ({ fileName, frontmatter, createdAt }: CardProps) => {
   const { title, description, image, tags } = frontmatter
   const omitExtension = fileName.split('.')[0]
-  const fileUrl = `/posts/${omitExtension}`
+  const url = getSitePath.postDetail(omitExtension)
 
   return (
     <Flex
@@ -21,7 +22,7 @@ export const Card = ({ fileName, frontmatter, createdAt }: CardProps) => {
       justify='between'
       className={styles.card}
       asChild>
-      <Link href={fileUrl}>
+      <Link href={url}>
         <Flex>
           <div className={styles.imageContainer}>
             <Image

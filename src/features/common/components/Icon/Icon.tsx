@@ -8,7 +8,7 @@ export interface IconProps extends Omit<LucideProps, 'icon'> {
   color?: string
 }
 
-export function Icon({ name, size = 24, color, ...props }: IconProps) {
+export function Icon({ name, size = 24, color, ...restProps }: IconProps) {
   const IconComponent = icons[name]
 
   if (!IconComponent) {
@@ -19,7 +19,7 @@ export function Icon({ name, size = 24, color, ...props }: IconProps) {
     <IconComponent
       size={size}
       color={color}
-      {...props}
+      {...restProps}
     />
   )
 }

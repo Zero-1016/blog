@@ -24,8 +24,9 @@ globalStyle('html, body', {
 globalStyle('body', {
   '@layer': {
     [layers.utilities]: {
+      minHeight: '100vh',
       color: vars.colors.textPrimary,
-      background: vars.colors.white90,
+      background: vars.colors.grey90,
       fontFamily: vars.fontFamily.body,
       WebkitFontSmoothing: 'antialiased',
       MozOsxFontSmoothing: 'grayscale'

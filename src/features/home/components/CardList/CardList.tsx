@@ -1,8 +1,8 @@
-import { Card } from '@/features/post/components/Card/Card'
 import { Flex } from '@/utils/Flex'
 import { type Post } from '@/features/post/types/post'
 import { Txt } from '@/common/components/Typography'
 import * as style from './style.css'
+import { Card } from '@/common/components/Card'
 
 export const CardList = ({ posts }: { posts: Post[] }) => {
   return (
