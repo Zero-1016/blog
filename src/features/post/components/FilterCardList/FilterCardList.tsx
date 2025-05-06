@@ -4,7 +4,7 @@ import { type Post } from '../../types/post'
 import * as style from './style.css'
 import { useTags } from '../../hooks/useTags'
 import { Flex } from '@/utils/Flex'
-import { Card } from '@/common/Card'
+import { Card } from '@/common/components/Card'
 
 type Props = {
   posts: Post[]
