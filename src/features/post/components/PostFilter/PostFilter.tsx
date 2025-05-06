@@ -3,24 +3,13 @@
 import { Chip } from '@/common/components/Chip'
 import { Flex } from '@/utils/Flex'
 import * as style from './style.css'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useTags } from '../../hooks/useTags'
 type PostFilterProps = {
   tags: string[]
 }
 
 export const PostFilter = ({ tags }: PostFilterProps) => {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
-  const handleShowAll = () => {
-    router.push('/post')
-  }
-
-  const handleShowTag = (tag: string) => {
-    router.push(`/post?tag=${tag}`)
-  }
-
-  const currentTag = searchParams.get('tag')
+  const { currentTag, handleTag, isAll } = useTags()
 
   return (
     <Flex
@@ -30,18 +19,18 @@ export const PostFilter = ({ tags }: PostFilterProps) => {
       justify='center'>
       <Chip
         size='medium'
-        color={currentTag === null ? 'primary' : 'white'}
+        color={isAll ? 'primary' : 'white'}
         className={style.chipStyle}
-        onClick={handleShowAll}>
+        onClick={() => handleTag()}>
         All
       </Chip>
       {tags.map((tag) => (
         <Chip
           key={tag}
           size='medium'
-          color={currentTag?.includes(tag) ? 'primary' : 'white'}
+          color={currentTag === tag ? 'primary' : 'white'}
           className={style.chipStyle}
-          onClick={() => handleShowTag(tag)}>
+          onClick={() => handleTag(tag)}>
           {tag}
         </Chip>
       ))}
