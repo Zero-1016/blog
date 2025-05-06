@@ -30,6 +30,6 @@ const ICON_SIZE_MAP = {
 
 const ICON_COLOR_MAP = {
   primary: vars.colors.white100,
-  secondary: vars.colors.grey,
+  secondary: vars.colors.grey90,
   white: vars.colors.primary
 } as const

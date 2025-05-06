@@ -4,5 +4,5 @@ import { vars } from '@/styles/theme.css'
 export const container = style({
   width: '100%',
   height: vars.height.footer,
-  backgroundColor: vars.colors.white90
+  backgroundColor: vars.colors.grey100
 })

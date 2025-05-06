@@ -16,7 +16,7 @@ export const chipStyle = recipe({
         color: vars.colors.white100
       },
       secondary: {
-        background: vars.colors.grey,
+        background: vars.colors.grey90,
         color: vars.colors.textSecondary,
         border: `1px solid ${vars.colors.borderLight}`
       },

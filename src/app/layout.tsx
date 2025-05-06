@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import { pretendard } from '@/styles/fonts/pretendard'
 import { Header, type HeaderProps } from '@/features/common/components/Header'
+import { Footer } from '@/features/common/components/Footer'
+
 export const metadata: Metadata = {
   title: '개발자 지형',
   description: '개발자 지형의 기술 블로그'
@@ -28,6 +30,7 @@ export default function Layout({
       <body>
         <Header {...headerProps} />
         {children}
+        <Footer />
       </body>
     </html>
   )

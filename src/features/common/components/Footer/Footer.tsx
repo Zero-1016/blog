@@ -3,10 +3,12 @@ import clsx from 'clsx'
 import * as styles from './style.css'
 import { type ComponentProps } from 'react'
 import { Flex } from '@/utils/Flex'
+import { Txt } from '../Typography'
+import { Icon } from '../Icon'
 
 export type FooterProps = CommonProps & ComponentProps<'footer'>
 
-export function Footer({ children, className: classNameFromProps, ...props }: FooterProps) {
+export function Footer({ className: classNameFromProps, ...props }: FooterProps) {
   return (
     <Flex
       asChild
@@ -15,7 +17,15 @@ export function Footer({ children, className: classNameFromProps, ...props }: Fo
       <footer
         className={clsx(styles.container, classNameFromProps)}
         {...props}>
-        {children}
+        <Flex
+          align='center'
+          gap={4}>
+          <Icon
+            size={16}
+            name='Copyright'
+          />
+          <Txt size='bodySm'>Dev Notes</Txt>
+        </Flex>
       </footer>
     </Flex>
   )
