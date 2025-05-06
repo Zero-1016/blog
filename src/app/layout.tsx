@@ -13,6 +13,7 @@ const headerProps: HeaderProps = {
   logoTitle: 'Dev Notes',
   navigationItems: [
     { label: 'Home', href: '/' },
+    { label: 'Post', href: '/post' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' }
   ]
