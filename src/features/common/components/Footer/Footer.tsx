@@ -21,6 +21,7 @@ export function Footer({ className: classNameFromProps, ...props }: FooterProps)
           align='center'
           gap={4}>
           <Icon
+            role='img'
             size={16}
             name='Copyright'
           />
